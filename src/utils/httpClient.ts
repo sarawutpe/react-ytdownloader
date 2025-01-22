@@ -1,5 +1,8 @@
 import axios from "axios";
 
+// const ENV_API_URL = import.meta.env.VITE_API_URL;
+// const ENV_API_KEY = import.meta.env.VITE_API_KEY;
+
 export const httpClient = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
 httpClient.interceptors.request.use(

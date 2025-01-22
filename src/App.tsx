@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useState, useEffect } from "react";
 import { httpClient } from "./utils/httpClient";
 import { YTResponse, YTVideoDetail } from "./utils/type";
 import dayjs from "dayjs";
@@ -99,6 +99,10 @@ const App: React.FC = () => {
       console.error("Metadata error:", err);
     }
   }, [processDownload, url, ytDownloads]);
+
+  useEffect(() => {
+    httpClient.get("ping");
+  }, []);
 
   return (
     <div className="flex flex-col items-center h-screen p-4">
